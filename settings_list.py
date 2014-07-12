@@ -9,26 +9,46 @@ available to the system.
 """
 
 class SettingsList(object):
+	"""
+	Class to store all of the settings. All settings
+	are stored in a dictionary.
+	"""
 	def __init__(self, _settings_file_path):
 		self.settings = {}
 		self.settings_file_path = _settings_file_path
 
 	def AddSetting(self, _identifier, _value):
+		"""
+		Adds a setting to the dictionary.
+		"""
 		self.settings[_identifier] = _value
 
 	def RemSetting(self, _identifier):
+		"""
+		Removes a setting from the dictionary.
+		Returns None if element doesn't exist.
+		"""
 		if self.settings.has_key(_identifier):
 			del self.settings[_identifier]
 		else:
 			return None
 
 	def GetSetting(self, _identifier):
+		"""
+		Returns the value of a setting.
+		Returns None if element doesn't exist.
+		"""
 		if _identifier in self.settings:
 			return self.settings[_identifier]
 		else:
 			return None
 
 	def LoadSettings(self):
+		"""
+		Loads the settings of the system from the
+		settings file.
+		Returns True if successful, else false.
+		"""
 		settings_file = open(self.settings_file_path, 'r')
 		print("Settings:")
 		for line in settings_file:
@@ -50,6 +70,10 @@ class SettingsList(object):
 		return True
 
 	def WriteSettings(self):
+		"""
+		Writes the settings to the settings file.
+		Returns True if successful, else False.
+		"""
 		states_file = open(self.settings_file_path, 'w')
 
 		string = ""
