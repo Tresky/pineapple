@@ -1,0 +1,5 @@
+#Current states
+lights:1
+tresky:32
+pineapple:yes
+statespath:states/states.txt

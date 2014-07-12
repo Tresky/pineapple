@@ -1,0 +1,3 @@
+#States in the system
+lights:1
+mystate:st
